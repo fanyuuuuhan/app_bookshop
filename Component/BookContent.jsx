@@ -23,14 +23,16 @@ export default function BookContent({ bookStar, bookName, bookAuthor, bookConten
         return stars;
     }
 
-    
+
 
     return (
-        <View style={{ flex: 1, backgroundColor:'#fff' }}>
+        <View style={{ flex: 1, backgroundColor: '#fff' }}>
 
             <ScrollView>
                 <View style={styles.content}>
-                    <Image source={bookPic} style={styles.pic} />
+                    <View　style={styles.pic}>
+                        <Image source={bookPic} />
+                    </View>
                     <Text style={{ fontSize: 24, fontWeight: 'bold', paddingTop: 20 }}>{String(bookName)}</Text>
                     <Text style={{ fontSize: 16, color: '#666666' }}>{bookAuthor}</Text>
                     <View style={{ flexDirection: 'row' }}>
@@ -40,15 +42,16 @@ export default function BookContent({ bookStar, bookName, bookAuthor, bookConten
                     <Text style={{ fontSize: 16, paddingHorizontal: 25, paddingVertical: 20, textAlign: 'center' }}>{bookContent}</Text>
 
                     <Pressable
-                        style={{
+                        style={({pressed})=> ({
                             backgroundColor: '#6200EE',
                             width: 260,
                             height: 56,
                             borderRadius: 4,
                             alignItems: 'center',
                             justifyContent: 'center',
-                            marginVertical: 20
-                        }}
+                            marginVertical: 20,
+                            opacity: pressed ? 0.8 : 1,
+                        })}
                     >
                         <Text style={{ color: '#fff', fontSize: 24 }}>Buy Now for $46.99</Text>
                     </Pressable>
@@ -82,15 +85,17 @@ const styles = StyleSheet.create({
     pic: {
         width: 210,
         height: 300,
-        shadowColor: '#000',
+        shadowColor: '#414144',
         shadowOffset: {
             width: 0,
-            height: 10,
+            height: 16,
         },
-        shadowRadius: 2,
+        shadowRadius: 16,
         shadowOpacity: 0.1,
-        backgroundColor: '#fff',    // 必填！沒有背景色陰影有時會顯示不出來
-        borderRadius: 8,
+        backgroundColor: '#fff',
+        borderTopEndRadius: 10,
+        borderEndEndRadius: 10,
+        elevation: 8,
     },
     star: {
         width: 20,
@@ -112,6 +117,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         backgroundColor: '#fff',    // 必填！沒有背景色陰影有時會顯示不出來
         borderRadius: 8,
+        elevation: 8,
     },
     unericon: {
         alignItems: 'center',

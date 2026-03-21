@@ -54,8 +54,8 @@ export default function Page() {
   const [nBook] = useState(newBook);
 
   return (
-    <SafeAreaView style={{flex:1, backgroundColor:'#fff'}}>
-      <Stack.Screen options={{headerShown: false,}} />
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+      <Stack.Screen options={{ headerShown: false, }} />
       <View style={styles.header}>
         <Image source={require('../Pic/Icon/icon_menu.png')} style={{ width: 24, height: 24 }} />
         <Image source={require('../Pic/Icon/icon_search.png')} style={{ width: 24, height: 24 }} />
@@ -87,7 +87,7 @@ export default function Page() {
       <View style={styles.end}>
         <View style={styles.unericon}>
           <Image source={require('../Pic/Icon/icon_home_actived.png')} style={{ width: 24, height: 24 }} />
-          <Text style={{color:'#6200EE'}}>Home</Text>
+          <Text style={{ color: '#6200EE' }}>Home</Text>
         </View>
         <View style={styles.unericon}>
           <Image source={require('../Pic/Icon/icon_nav_bookmark.png')} style={{ width: 24, height: 24 }} />
@@ -128,8 +128,9 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 2,
     shadowOpacity: 0.1,
-    backgroundColor: '#fff',    // 必填！沒有背景色陰影有時會顯示不出來
+    backgroundColor: '#fff', 
     borderRadius: 8,
+    elevation: 8,
   },
   unericon: {
     alignItems: 'center',

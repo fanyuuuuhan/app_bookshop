@@ -21,7 +21,7 @@ export default function BookItem({ book }) {
                     style={styles.star}
                 />
             )
-            
+
         }
         return stars;
     }
@@ -31,11 +31,13 @@ export default function BookItem({ book }) {
             onPress={() => {
                 router.push({
                     pathname: `/bookshop/${book.id}`,
-                    params: { name: book.name, 
-                        author: book.author, 
-                        pic: book.pic, 
-                        star:book.star,
-                        content:book.content }
+                    params: {
+                        name: book.name,
+                        author: book.author,
+                        pic: book.pic,
+                        star: book.star,
+                        content: book.content
+                    }
                 });
             }}
             style={{
@@ -44,12 +46,17 @@ export default function BookItem({ book }) {
             }}
 
         >
-            <Image
-                source={book.pic}
-                style={{width:140, height:200}}
-            />
+            <View style={styles.pic}>
+                <Image
+                    source={book.pic}
+                    style={{
+                        width: 140,
+                        height: 200,
+                    }}
+                />
+            </View>
             <View>
-                <View style={{flexDirection: 'row', paddingTop:10}}>
+                <View style={{ flexDirection: 'row', paddingTop: 10 }}>
                     {renderStar(book.star)}
                 </View>
                 <Text style={{ fontSize: 16, fontWeight: 'bold', paddingTop: 10 }}>{book.name}</Text>
@@ -64,6 +71,19 @@ const styles = StyleSheet.create({
     star: {
         width: 14,
         height: 14,
-        marginRight:5
-    }
+        marginRight: 5
+    },
+    pic: {
+        shadowColor: '#414144',
+        shadowOffset: {
+            width: 0,
+            height: 16,
+        },
+        shadowRadius: 16,
+        shadowOpacity: 0.1,
+        backgroundColor: '#fff',
+        borderTopEndRadius: 10,
+        borderEndEndRadius: 10,
+        elevation: 8,
+    },
 })
